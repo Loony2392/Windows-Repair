@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install PSScriptAnalyzer
-      shell: pwsh
+      shell: powershell
       run: |
         Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
 
@@ -23,6 +23,7 @@ jobs:
       run: Install-Module -Name PS2EXE -Force -Scope CurrentUser
 
     - name: Convert PS1 to EXE
+      shell: powershell
       run: |
         ps2exe -inputFile ./Repair-Windows.ps1 -outputFile ./Repair-Windows.exe
 
