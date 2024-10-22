@@ -24,7 +24,7 @@ jobs:
 
     - name: Convert PS1 to EXE
       run: |
-        New-PS2EXE -inputFile ./Repair-Windows.ps1 -outputFile ./Repair-Windows.exe
+        ps2exe -inputFile ./Repair-Windows.ps1 -outputFile ./Repair-Windows.exe
 
     - name: Upload EXE as Artifact
       uses: actions/upload-artifact@v3
