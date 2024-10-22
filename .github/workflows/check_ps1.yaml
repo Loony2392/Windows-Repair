@@ -1,0 +1,32 @@
+name: Lint PowerShell Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up PowerShell
+      uses: actions/setup-powershell@v1
+
+    - name: Install PSScriptAnalyzer
+      run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+
+    - name: Run PSScriptAnalyzer
+      run: |
+        $results = Invoke-ScriptAnalyzer -Path ./Repair-Windows.ps1
+        if ($results.Count -gt 0) {
+          Write-Host "Linting issues found:"; 
+          $results | ForEach-Object { Write-Host $_ }
+          exit 1
+        } else {
+          Write-Host "No linting issues found."
+        }
