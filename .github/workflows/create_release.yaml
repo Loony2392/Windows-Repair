@@ -18,14 +18,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
-
-    - name: Install PS2EXE
-      run: Install-Module -Name PS2EXE -Force -Scope CurrentUser
-
-    - name: Convert PS1 to EXE
-      run: |
-        New-PS2EXE -inputFile ./Repair-Windows.ps1 -outputFile "./LOONY-TECH - Windows Repair.exe"
-
+        
     - name: Zip Source Code
       run: Compress-Archive -Path ./ -DestinationPath ./source-code.zip -Force
 
