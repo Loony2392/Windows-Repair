@@ -25,12 +25,6 @@ jobs:
     - name: Get the current date
       id: date
       run: echo "::set-output name=tag::V$(date +'%Y.%m.%d')"
-
-    - name: Get previous tag
-      id: prev_tag
-      run: |
-        git fetch --tags
-        echo "::set-output name=tag::$(git describe --tags --abbrev=0 HEAD^)"
         
     - name: Get commit history
       id: commits
