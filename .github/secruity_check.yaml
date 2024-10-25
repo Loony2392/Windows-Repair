@@ -1,0 +1,14 @@
+name: Security Check
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Wöchentliches Scannen
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Dependabot security audit
+        uses: actions/dependency-review-action@v2
