@@ -103,9 +103,9 @@ netsh winsock reset
 netsh int ip reset
 
 # 21. Windows Defender aktualisieren und vollständigen Scan durchführen
-Write-Host "21. Windows Defender aktualisieren und vollständigen Systemscan durchführen..." -ForegroundColor Yellow
-Update-MpSignature
-Start-MpScan -ScanType FullScan
+#Write-Host "21. Windows Defender aktualisieren und vollständigen Systemscan durchführen..." -ForegroundColor Yellow
+#Update-MpSignature
+#Start-MpScan -ScanType FullScan
 
 # 22. Festplatte defragmentieren
 Write-Host "22. Festplatte defragmentieren..." -ForegroundColor Yellow
